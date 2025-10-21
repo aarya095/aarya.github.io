@@ -236,3 +236,35 @@ ul {
   animation: fadeIn 1.2s ease forwards;
   animation-delay: 0.5s;
 }
+
+/* ===== BLOG SECTION ===== */
+#blogs {
+  padding: 50px 0;
+}
+
+#blogs a {
+  font-weight: 600;
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact {
+  padding: 50px 0;
+}
+
+#contact a {
+  color: #00ffc8;
+  font-weight: 500;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  font-size: 0.9rem;
+}
