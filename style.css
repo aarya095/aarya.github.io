@@ -30,3 +30,17 @@ ul {
   list-style-type: none;
   padding: 0;
 }
+
+.photo-container {
+  display: flex;
+  justify-content: center;  /* horizontal centering */
+  margin: 20px 0;           /* space above and below */
+}
+
+.profile-photo {
+  width: 150px;             /* size of your photo */
+  height: 150px;            /* keep width = height for perfect circle */
+  border-radius: 50%;       /* makes it circular */
+  object-fit: cover;        /* ensures photo fits nicely */
+  border: 3px solid #333;   /* optional border */
+}
