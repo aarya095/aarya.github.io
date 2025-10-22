@@ -154,8 +154,9 @@ document.addEventListener("DOMContentLoaded", type);
 
 
   <footer>
-    <p>© 2025 Crafted with curiosity and code 💻</p>
+    <p>© <span id="year"></span> 2025 Crafted with curiosity and code 💻</p>
   </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
 <script>
   const cursor = document.querySelector('.cursor-dot');
