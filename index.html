@@ -123,10 +123,23 @@
 
 <script>
   window.addEventListener('scroll', () => {
+    const progressBar = document.getElementById('scroll-progress');
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
-    document.getElementById('scroll-progress').style.width = scrollPercent + '%';
+
+    // update width
+    progressBar.style.width = scrollPercent + '%';
+
+    // handle opacity
+    if (scrollPercent < 1) {
+      progressBar.style.opacity = 0;
+    } else {
+      progressBar.style.opacity = 1;
+    }
+
+    // glowing effect
+    progressBar.style.boxShadow = `0 0 ${5 + scrollPercent / 10}px var(--accent-color)`;
   });
 </script>
 
