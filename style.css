@@ -12,6 +12,12 @@
   --accent-color: #00ffff;
   --accent-secondary: #00bfff;
   --border-color: #1a1a1a;
+  --muted-text: #bcbcbc;
+  --section-padding: 80px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -21,6 +27,7 @@ body {
   color: var(--text-color);
   font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
 /* ================================
@@ -40,6 +47,7 @@ header {
 h1, h2, h3 {
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
+  margin-top: 0;
 }
 
 h2 {
@@ -49,11 +57,12 @@ h2 {
 a {
   color: var(--accent-color);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
-  color: #00bfff;
+  color: var(--accent-secondary);
+  text-shadow: 0 0 8px var(--accent-color);
 }
 
 ul {
@@ -136,7 +145,7 @@ ul {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 80px 20px;
+  padding: var(--section-padding) 20px;
   min-height: 100vh;
   background: linear-gradient(145deg, #0a0a0a 0%, #0f1c1c 100%);
   position: relative;
@@ -164,9 +173,7 @@ ul {
 }
 
 .profile-photo {
-  width: 20vw;
-  max-width: 300px;
-  min-width: 200px;
+  width: clamp(280px, 20vw, 480px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   object-fit: cover;
@@ -253,7 +260,7 @@ ul {
 ================================== */
 .about {
   background-color: #0c0c0c;
-  padding: 80px 20px;
+  padding: var(--section-padding) 20px;
   text-align: center;
   border-top: 1px solid #1a1a1a;
   border-bottom: 1px solid #1a1a1a;
@@ -286,11 +293,11 @@ ul {
   font-size: 1rem;
   max-width: 700px;
   margin: 0 auto;
-  color: #d0d0d0;
+  color: var(--text-color);
   line-height: 1.8;
   letter-spacing: 0.3px;
   text-align: justify;
-  text-align-last: center; /* keeps paragraphs neat on all devices */
+  text-align-last: center; 
 }
 
 /* ================================
@@ -305,11 +312,20 @@ ul {
 
 /* ===== BLOG SECTION ===== */
 #blogs {
-  padding: 50px 0;
+  padding: var(--section-padding) 20px;
+  background: #0b0b0b;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  text-align: center;
+  box-shadow: inset 0 0 15px #00ffff08;
 }
 
 #blogs a {
   font-weight: 600;
+}
+
+#blogs h2 {
+  color: var(--accent-secondary);
 }
 
 /* ================================
@@ -343,7 +359,7 @@ ul {
 }
 
 .medium-post p {
-  color: #bcbcbc;
+  color: var(--muted-text);
   font-size: 0.95rem;
   line-height: 1.6;
 }
@@ -358,6 +374,17 @@ ul {
 
 .medium-post .read-more:hover {
   text-shadow: 0 0 8px var(--accent-color);
+}
+
+/* ======================================
+   Divider Between Blog & Contact
+====================================== */
+.blog-contact-divider {
+  width: 70%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #00ffff55, transparent);
+  margin: 60px auto;
+  box-shadow: 0 0 6px #00ffff33;
 }
 
 /* ===== CONTACT SECTION ===== */
