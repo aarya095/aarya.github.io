@@ -7,6 +7,34 @@
   <title>Aarya | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+<script>
+  const mediumFeedUrl = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@aarya-sarfare";
+
+  fetch(mediumFeedUrl)
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById("medium-articles");
+      container.innerHTML = ""; // Clear loading text
+
+      const posts = data.items.slice(0, 3); // last 3 articles
+      posts.forEach(post => {
+        const article = document.createElement("div");
+        article.classList.add("medium-post");
+        article.innerHTML = `
+          <h3><a href="${post.link}" target="_blank">${post.title}</a></h3>
+          <p>${post.description.split(" ").slice(0, 25).join(" ")}...</p>
+          <a href="${post.link}" target="_blank" class="read-more">Read More →</a>
+        `;
+        container.appendChild(article);
+      });
+    })
+    .catch(err => {
+      document.getElementById("medium-articles").innerHTML = "<p>Could not load articles.</p>";
+      console.error("Error fetching Medium feed:", err);
+    });
+</script>
+
 <body>
 
   <!-- ===================== NAVBAR ===================== -->
@@ -50,8 +78,11 @@
 
   <section id="blogs">
     <h2>Blog</h2>
-    <p>Read my articles on <a href="https://medium.com/@aarya-sarfare">Medium</a>.</p>
+    <div id="medium-articles">
+      <p>Loading latest articles...</p>
+    </div>
   </section>
+
 
   <section id="contact">
     <h2>Contact</h2>
