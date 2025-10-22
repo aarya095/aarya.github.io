@@ -60,7 +60,62 @@
       <img src="images/photo_feb_2025(1).jpg" alt="My Photo" class="profile-photo">
     </div>
     <h1 class="hero-name">Aarya Sarfare</h1>
-    <h2 class="hero-title">Aspiring Cybersecurity Professional</h2>
+<h2 class="hero-title">
+  <span id="typing"></span><span id="cursor">|</span>
+</h2>
+
+<style>
+#cursor {
+  display: inline-block;
+  margin-left: 4px;
+  animation: blink 0.8s infinite;
+}
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+</style>
+
+<script>
+const roles = ["Aspiring Cybersecurity Professional", "Ethical Hacking Learner", "Linux Explorer"];
+let i = 0;
+let j = 0;
+let deleting = false;
+
+function type() {
+  const el = document.getElementById("typing");
+  const text = roles[i];
+
+  el.textContent = text.slice(0, j);
+
+  if (!deleting) {
+    if (j < text.length) {
+      j++;
+      setTimeout(type, 120);
+    } else {
+      // hold full text visible, then start deleting
+      setTimeout(() => {
+        deleting = true;
+        type();
+      }, 1500);
+    }
+  } else {
+    if (j > 0) {
+      j--;
+      setTimeout(type, 80);
+    } else {
+      deleting = false;
+      i = (i + 1) % roles.length;
+      setTimeout(type, 300);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", type);
+</script>
+
+
+
     <p class="hero-text">
       Passionate about securing systems, learning ethical hacking, and exploring the world of web vulnerabilities.
     </p>
@@ -78,6 +133,8 @@
     </p>
   </section>
 
+  <div class="section-divider"></div>
+
   <section id="blogs">
     <h2>Blog</h2>
     <div id="medium-articles">
@@ -85,7 +142,7 @@
     </div>
   </section>
 
-
+  <div class="section-divider"></div>
 
   <section id="contact">
     <h2>Contact</h2>
@@ -94,6 +151,7 @@
     <p>LinkedIn: <a href="https://www.linkedin.com/in/aarya-sarfare/">linkedin.com/in/aarya-sarfare/</a></p>
     <p>Resume: <a href="files/Aarya_Sarfare_Resume.pdf" class="resume-btn" target="_blank">View PDF</a></p>
   </section>
+
 
   <footer>
     <p>© 2025 Crafted with curiosity and code 💻</p>

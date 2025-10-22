@@ -352,7 +352,16 @@ ul {
   background: linear-gradient(to right, transparent, #00ffff80, transparent);
   box-shadow: 0 0 10px #00ffff44;
   border-radius: 2px;
+  animation: glow 4s ease-in-out infinite alternate;
 }
+
+@keyframes glow {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+
 
 /* ================================
    About Section
@@ -475,17 +484,6 @@ ul {
   text-shadow: 0 0 8px var(--accent-color);
 }
 
-/* ======================================
-   Divider Between Blog & Contact
-====================================== */
-.blog-contact-divider {
-  width: 70%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #00ffff55, transparent);
-  margin: 60px auto;
-  box-shadow: 0 0 6px #00ffff33;
-}
-
 /* ===== CONTACT SECTION ===== */
 #contact {
   padding: 50px 0;
@@ -518,9 +516,5 @@ footer::before {
   width: 80%;
   margin: 0 auto 20px;
   background: linear-gradient(to right, transparent, #00ffff88, transparent);
-  animation: glow 2s infinite alternate;
 }
-@keyframes glow {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
-}
+
