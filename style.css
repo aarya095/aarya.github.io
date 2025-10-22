@@ -16,6 +16,12 @@
   --section-padding: 80px;
 }
 
+html {
+  scroll-padding-top: 70px;
+  scroll-behavior: smooth;
+}
+
+
 * {
   box-sizing: border-box;
 }
@@ -28,6 +34,48 @@ body {
   font-family: 'Roboto', sans-serif;
   scroll-behavior: smooth;
   line-height: 1.6;
+}
+
+/* ================================
+   Custom Cursor Glow
+================================ */
+body {
+  cursor: none; /* Hide default cursor */
+}
+
+*, a, button {
+  cursor: none !important;
+}
+
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--accent-color);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px var(--accent-color);
+  transition: transform 0.1s ease-out, background 0.3s;
+  z-index: 9999;
+  mix-blend-mode: difference; /* Optional cool blending */
+}
+
+/* ================================
+   Scroll Progress Bar
+================================ */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-secondary));
+  box-shadow: 0 0 10px var(--accent-color);
+  z-index: 10000;
+  transition: width 0.15s ease-out;
 }
 
 /* ================================
@@ -390,6 +438,8 @@ ul {
 /* ===== CONTACT SECTION ===== */
 #contact {
   padding: 50px 0;
+  font-family: 'Fira Code', monospace;
+  margin-right: 5px;
 }
 
 #contact a {
@@ -408,4 +458,18 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #888;
   font-size: 0.9rem;
+}
+
+footer::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 80%;
+  margin: 0 auto 20px;
+  background: linear-gradient(to right, transparent, #00ffff88, transparent);
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { opacity: 0.4; }
+  to { opacity: 1; }
 }
