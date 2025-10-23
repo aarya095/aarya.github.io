@@ -549,6 +549,7 @@ footer::before {
   height: 100%;
   overflow: hidden;
   z-index: 0;
+  box-shadow: 0 0 40px rgba(0,255,255,0.1);
   background: radial-gradient(circle at center, rgba(0,255,255,0.04) 0%, transparent 80%);
   mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
