@@ -62,6 +62,12 @@ body {
   z-index: 9999;
   mix-blend-mode: normal;
 }
+/* Hide cursor-dot on touch devices (mobiles/tablets) */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot {
+    display: none;
+  }
+}
 
 /* ================================
    Scroll Progress Bar
