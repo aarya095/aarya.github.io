@@ -549,7 +549,6 @@ footer::before {
   height: 100%;
   overflow: hidden;
   z-index: 0;
-  box-shadow: 0 0 40px rgba(0,255,255,0.1);
   background: radial-gradient(circle at center, rgba(0,255,255,0.04) 0%, transparent 80%);
   mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
   -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 100%);
@@ -564,7 +563,7 @@ footer::before {
   background-image:
     repeating-linear-gradient(60deg, rgba(0,255,255,0.05) 0px, rgba(0,255,255,0.05) 1px, transparent 1px, transparent 40px),
     repeating-linear-gradient(-60deg, rgba(0,255,255,0.05) 0px, rgba(0,255,255,0.05) 1px, transparent 1px, transparent 40px);
-  animation: rotateGrid 45s linear infinite;
+  animation: Grid 45s linear infinite;
   transform: translate(-25%, -25%);
   opacity: 0.5;
 }
